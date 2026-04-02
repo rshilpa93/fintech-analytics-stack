@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Cleaned and filtered transactions. Completed transactions only."
+    columns:
+      - name: transaction_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null
+      - name: transaction_type
+        tests:
+          - accepted_values:
+              values: ['deposit', 'withdrawal', 'purchase']
+
+  - name: stg_customers
+    description: "Cleaned customer profiles"
+    columns:
+      - name: customer_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: plan_type
+        tests:
+          - accepted_values:
+              values: ['basic', 'premium']

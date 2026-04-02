@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: customer_metrics
+    description: "One row per customer with KPIs and engagement tier"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: engagement_tier
+        tests:
+          - accepted_values:
+              values: ['high', 'medium', 'low']
+
+  - name: monthly_summary
+    description: "Monthly aggregated transaction metrics"
+    columns:
+      - name: transaction_month
+        tests:
+          - unique
+          - not_null
