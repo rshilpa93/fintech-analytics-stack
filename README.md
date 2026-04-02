@@ -1,5 +1,7 @@
 # Fintech Analytics Stack
 
+🚀 **[View Live Dashboard](https://fintech-analytics-dashboard.streamlit.app/)** | Built with dbt + DuckDB + Streamlit
+
 A production-style analytics engineering project built with dbt + DuckDB, modeled after real fintech data infrastructure.
 
 ## What This Demonstrates
