@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # ── Connect to DuckDB ──
-DB_PATH = "/Users/shilparadhakrishnan/fintech-analytics-stack/fintech_analytics/fintech.duckdb"
+DB_PATH = "fintech_analytics/fintech.duckdb"
 con = duckdb.connect(DB_PATH, read_only=True)
 
 # ── Load data ──
