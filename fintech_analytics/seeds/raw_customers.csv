@@ -1,0 +1,9 @@
+customer_id,first_name,last_name,signup_date,plan_type,state
+C001,Sarah,Johnson,2023-11-01,premium,ON
+C002,James,Lee,2023-10-15,basic,BC
+C003,Priya,Sharma,2023-12-01,premium,ON
+C004,Mike,Chen,2024-01-05,basic,AB
+C005,Emma,Wilson,2024-02-01,basic,ON
+C006,David,Park,2023-09-20,premium,BC
+C007,Lisa,Brown,2024-01-20,basic,ON
+C008,Omar,Hassan,2023-11-15,premium,AB

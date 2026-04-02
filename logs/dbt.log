@@ -1,0 +1,31 @@
+[0m14:43:53.916920 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10447dcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106064880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1060646a0>]}
+
+
+============================== 14:43:53.920745 | f90424e4-2a10-461d-8bb9-17f01d057a25 ==============================
+[0m14:43:53.920745 [info ] [MainThread]: Running with dbt=1.10.20
+[0m14:43:53.921008 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/shilparadhakrishnan/.dbt', 'quiet': 'False', 'introspect': 'True', 'indirect_selection': 'eager', 'printer_width': '80', 'log_format': 'default', 'partial_parse': 'True', 'write_json': 'True', 'target_path': 'None', 'empty': 'None', 'cache_selected_only': 'False', 'debug': 'False', 'warn_error': 'None', 'invocation_command': 'dbt init fintech_analytics', 'log_cache_events': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'log_path': 'logs'}
+[0m14:43:53.928436 [info ] [MainThread]: Creating dbt configuration folder at /Users/shilparadhakrishnan/.dbt
+[0m14:43:53.929185 [debug] [MainThread]: Starter project path: /Users/shilparadhakrishnan/Library/Python/3.9/lib/python/site-packages/dbt/include/starter_project
+[0m14:43:53.932068 [info ] [MainThread]: 
+Your new dbt project "fintech_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:43:53.932214 [info ] [MainThread]: Setting up your profile.
+[0m14:44:04.541619 [info ] [MainThread]: Profile fintech_analytics written to /Users/shilparadhakrishnan/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m14:44:04.543494 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 10.662787, "process_in_blocks": "0", "process_kernel_time": 0.114146, "process_mem_max_rss": "115392512", "process_out_blocks": "0", "process_user_time": 0.65104}
+[0m14:44:04.543710 [debug] [MainThread]: Command `dbt init` succeeded at 14:44:04.543658 after 10.66 seconds
+[0m14:44:04.543880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10447dcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106101f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1060646a0>]}
+[0m14:44:04.544065 [debug] [MainThread]: Flushing usage events
+[0m14:44:04.998953 [debug] [MainThread]: An error was encountered while trying to flush usage events
