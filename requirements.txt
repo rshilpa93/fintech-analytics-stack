@@ -2,3 +2,4 @@ duckdb
 streamlit
 plotly
 pandas
+anthropic
