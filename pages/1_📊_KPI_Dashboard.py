@@ -4,11 +4,6 @@ import pandas as pd
 import plotly.express as px
 
 # ── Config ──
-st.set_page_config(
-    page_title="Fintech Analytics Dashboard",
-    page_icon="📊",
-    layout="wide"
-)
 
 # ── Connect to DuckDB ──
 DB_PATH = "fintech_analytics/fintech.duckdb"
