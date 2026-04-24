@@ -66,7 +66,7 @@ Rules:
 def get_sql_from_question(question: str, client: anthropic.Anthropic) -> str:
     """Use Claude to convert a natural language question to SQL."""
     message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
+        model="claude-sonnet-4-20250514",
         max_tokens=1000,
         messages=[
             {
@@ -88,7 +88,7 @@ def explain_result(question: str, sql: str, df: pd.DataFrame, client: anthropic.
     """Use Claude to explain the query result in plain English."""
     data_preview = df.to_string(index=False, max_rows=20)
     message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
+        model="claude-sonnet-4-20250514",
         max_tokens=500,
         messages=[
             {
