@@ -119,6 +119,7 @@ with st.sidebar:
     st.divider()
     st.header("💡 Example Questions")
     examples = [
+        "— select an example —",
         "Who are the top 5 customers by net balance?",
         "What is the average deposit amount for premium vs basic customers?",
         "Which month had the most active customers?",
@@ -128,9 +129,10 @@ with st.sidebar:
         "What percentage of customers are on the premium plan?",
         "Which customers have more outflows than deposits?",
     ]
-    for ex in examples:
-        if st.button(ex, use_container_width=True, key=ex):
-            st.session_state.question = ex
+    selected = st.selectbox("Pick a question to try", examples, label_visibility="collapsed")
+    if selected != "— select an example —":
+        st.session_state.question = selected
+        st.session_state.run_query = True
 
 st.divider()
 
@@ -146,7 +148,10 @@ col1, col2 = st.columns([1, 5])
 with col1:
     run = st.button("Ask →", type="primary", use_container_width=True)
 
-if run and question:
+if run:
+    st.session_state.run_query = True
+
+if st.session_state.get("run_query") and question:
     if not api_key:
         st.error("Please enter your Anthropic API key in the sidebar.")
         st.stop()
@@ -159,6 +164,7 @@ if run and question:
 
         if sql.startswith("ERROR:"):
             st.error(sql)
+            st.session_state.run_query = False
             st.stop()
 
         # Step 2: Run query
@@ -168,10 +174,14 @@ if run and question:
             st.error(f"Query failed: {e}")
             with st.expander("Generated SQL"):
                 st.code(sql, language="sql")
+            st.session_state.run_query = False
             st.stop()
 
         # Step 3: Explain result
         explanation = explain_result(question, sql, df, client)
+
+    # Reset flag
+    st.session_state.run_query = False
 
     # ── Display results ──
     st.success(f"✓ Found {len(df)} row{'s' if len(df) != 1 else ''}")
@@ -187,7 +197,7 @@ if run and question:
     with st.expander("View generated SQL"):
         st.code(sql, language="sql")
 
-elif run and not question:
+elif (run or st.session_state.get("run_query")) and not question:
     st.warning("Please enter a question.")
 
 # ── Footer ──
