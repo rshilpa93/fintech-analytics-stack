@@ -111,6 +111,10 @@ st.caption("Natural language → SQL → Results · Powered by Claude + dbt + Du
 
 st.divider()
 
+# Initialize session state
+if "question" not in st.session_state:
+    st.session_state.question = ""
+
 # API key input
 with st.sidebar:
     st.header("⚙️ Setup")
@@ -118,6 +122,7 @@ with st.sidebar:
     st.caption("Get your key at console.anthropic.com")
     st.divider()
     st.header("💡 Example Questions")
+    st.caption("Select one to load it into the question box, then click Ask →")
     examples = [
         "— select an example —",
         "Who are the top 5 customers by net balance?",
@@ -129,29 +134,24 @@ with st.sidebar:
         "What percentage of customers are on the premium plan?",
         "Which customers have more outflows than deposits?",
     ]
-    selected = st.selectbox("Pick a question to try", examples, label_visibility="collapsed")
+    selected = st.selectbox("Examples", examples, label_visibility="collapsed")
     if selected != "— select an example —":
         st.session_state.question = selected
-        st.session_state.run_query = True
 
 st.divider()
 
 # Question input
 question = st.text_input(
     "Ask a question about your data",
-    value=st.session_state.get("question", ""),
+    value=st.session_state.question,
     placeholder="e.g. Who are the top 5 customers by net balance?",
-    key="main_input"
 )
 
 col1, col2 = st.columns([1, 5])
 with col1:
     run = st.button("Ask →", type="primary", use_container_width=True)
 
-if run:
-    st.session_state.run_query = True
-
-if st.session_state.get("run_query") and question:
+if run and question:
     if not api_key:
         st.error("Please enter your Anthropic API key in the sidebar.")
         st.stop()
@@ -197,7 +197,7 @@ if st.session_state.get("run_query") and question:
     with st.expander("View generated SQL"):
         st.code(sql, language="sql")
 
-elif (run or st.session_state.get("run_query")) and not question:
+elif run and not question:
     st.warning("Please enter a question.")
 
 # ── Footer ──
